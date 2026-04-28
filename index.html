@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Configuración para compartir (Open Graph) -->
     <title>Mis xv años Melissa💙</title>
@@ -31,6 +31,7 @@
             margin: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
         .cursive {
             font-family: 'Dancing Script', cursive;
@@ -144,8 +145,8 @@
             right: 30px;
             z-index: 100;
             background: white;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -154,6 +155,12 @@
             cursor: pointer;
             border: 2px solid var(--brand-blue);
             transition: all 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            #music-control {
+                width: 60px;
+                height: 60px;
+            }
         }
         .music-playing {
             animation: spin 4s linear infinite;
@@ -176,11 +183,6 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-
-        @keyframes zoomIn {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
-        }
     </style>
 </head>
 <body>
@@ -196,7 +198,7 @@
 
     <!-- CONTROL DE MÚSICA -->
     <div id="music-control" onclick="toggleMusic()">
-        <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#80a1c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#80a1c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18V5l12-2v13"></path>
             <circle cx="6" cy="18" r="3"></circle>
             <circle cx="18" cy="16" r="3"></circle>
@@ -208,40 +210,41 @@
     </audio>
 
     <!-- PORTADA PRINCIPAL -->
-    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <!-- Ajuste: h-[100dvh] para altura dinámica real en móviles y overflow-hidden -->
+    <section class="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
+        <!-- Ajuste de imagen: se eliminó la animación de escala 110 para evitar zoom excesivo -->
         <img src="https://raw.githubusercontent.com/regina15033/xv-melissa/main/b14b4626-38de-4312-81e1-c1864837767e.jfif" 
              alt="Melissa XV Años" 
-             class="absolute inset-0 w-full h-full object-cover transform scale-110"
-             style="animation: zoomIn 20s infinite alternate;"
+             class="absolute inset-0 w-full h-full object-cover object-center"
              onerror="this.src='https://via.placeholder.com/1080x1920/80a1c4/ffffff?text=Melissa+XV'">
         
         <div class="absolute inset-0 hero-overlay"></div>
         
         <div class="relative z-10 text-center px-4" data-aos="zoom-out" data-aos-duration="2000">
-            <h2 class="text-white text-xl md:text-3xl uppercase tracking-[0.4em] mb-4 font-light">Mis XV Años</h2>
+            <h2 class="text-white text-lg md:text-3xl uppercase tracking-[0.4em] mb-4 font-light">Mis XV Años</h2>
             <div class="divider"></div>
-            <h1 class="text-7xl md:text-9xl cursive mb-4 name-title floating">
+            <h1 class="text-6xl md:text-9xl cursive mb-4 name-title floating">
                 <span class="shimmer-effect">Melissa</span>
             </h1>
-            <div class="mt-12 animate-bounce text-white opacity-70">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            <div class="mt-8 md:mt-12 animate-bounce text-white opacity-70">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
             </div>
         </div>
     </section>
 
     <!-- FRASE Y FECHA -->
-    <section class="py-32 px-6 text-center bg-white overflow-hidden relative">
+    <section class="py-20 md:py-32 px-6 text-center bg-white overflow-hidden relative">
         <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
-            <span class="text-[#80a1c4] text-6xl serif block mb-6">“</span>
-            <p class="text-gray-600 italic leading-relaxed text-2xl md:text-3xl serif mb-10">
+            <span class="text-[#80a1c4] text-5xl md:text-6xl serif block mb-4 md:mb-6">“</span>
+            <p class="text-gray-600 italic leading-relaxed text-xl md:text-3xl serif mb-6 md:mb-10 px-4">
                 Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quieres, los hace inolvidables.
             </p>
-            <span class="text-[#80a1c4] text-6xl serif block mb-8">”</span>
+            <span class="text-[#80a1c4] text-5xl md:text-6xl serif block mb-6 md:mb-8">”</span>
             
-            <div class="mt-8 py-10 border-y border-slate-100 inline-block px-12" data-aos="zoom-in" data-aos-delay="500">
-                <p class="text-[#80a1c4] text-3xl md:text-4xl serif font-light tracking-[0.2em] mb-2">SÁBADO</p>
-                <p class="text-[#4a6a8a] text-6xl md:text-8xl cursive my-4 drop-shadow-sm">20 de Junio</p>
-                <p class="text-[#80a1c4] text-3xl md:text-4xl serif font-light tracking-[0.2em] mt-2">2026</p>
+            <div class="mt-4 md:mt-8 py-8 md:py-10 border-y border-slate-100 inline-block px-8 md:px-12" data-aos="zoom-in" data-aos-delay="500">
+                <p class="text-[#80a1c4] text-2xl md:text-4xl serif font-light tracking-[0.2em] mb-2">SÁBADO</p>
+                <p class="text-[#4a6a8a] text-5xl md:text-8xl cursive my-4 drop-shadow-sm">20 de Junio</p>
+                <p class="text-[#80a1c4] text-2xl md:text-4xl serif font-light tracking-[0.2em] mt-2">2026</p>
             </div>
         </div>
     </section>
@@ -249,32 +252,31 @@
     <!-- GALERÍA DE FOTOS -->
     <section class="py-20 px-6 bg-slate-50">
         <div class="max-w-6xl mx-auto">
-            <h3 class="serif text-4xl text-center mb-16 text-[#80a1c4] font-light tracking-widest" data-aos="fade-down">Mis mejores momentos</h3>
+            <h3 class="serif text-3xl md:text-4xl text-center mb-12 md:text-16 text-[#80a1c4] font-light tracking-widest" data-aos="fade-down">Mis mejores momentos</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="overflow-hidden rounded-2xl h-96 shadow-xl" data-aos="flip-left" data-aos-delay="100">
+                <div class="overflow-hidden rounded-2xl h-80 md:h-96 shadow-xl" data-aos="flip-left" data-aos-delay="100">
                     <img src="https://raw.githubusercontent.com/regina15033/xv-melissa/main/9cbb5bfe-d7ed-481d-9334-c7801e668052.jfif" alt="Melissa 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-2xl h-96 shadow-xl" data-aos="flip-left" data-aos-delay="300">
+                <div class="overflow-hidden rounded-2xl h-80 md:h-96 shadow-xl" data-aos="flip-left" data-aos-delay="300">
                     <img src="https://raw.githubusercontent.com/regina15033/xv-melissa/main/8f15f8e5-84b3-4770-a40a-1351002abcd8.jfif" alt="Melissa 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-2xl h-96 shadow-xl" data-aos="flip-left" data-aos-delay="500">
+                <div class="overflow-hidden rounded-2xl h-80 md:h-96 shadow-xl" data-aos="flip-left" data-aos-delay="500">
                     <img src="https://raw.githubusercontent.com/regina15033/xv-melissa/main/f697bec6-60f3-44a8-8dc2-79a9835a02c3.jfif" alt="Melissa 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-2xl h-96 shadow-xl" data-aos="flip-left" data-aos-delay="700">
+                <div class="overflow-hidden rounded-2xl h-80 md:h-96 shadow-xl" data-aos="flip-left" data-aos-delay="700">
                     <img src="https://raw.githubusercontent.com/regina15033/xv-melissa/main/e2a3636b-5448-48d4-9924-8471f5a067f6.jfif" alt="Melissa 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CUENTA REGRESIVA CON CÍRCULOS MINI -->
-    <section class="py-24 bg-[#80a1c4] text-white text-center shadow-inner relative overflow-hidden">
+    <!-- CUENTA REGRESIVA -->
+    <section class="py-16 md:py-24 bg-[#80a1c4] text-white text-center shadow-inner relative overflow-hidden">
         <div class="relative z-10">
-            <h3 class="uppercase tracking-widest text-sm mb-12 font-semibold opacity-90">El gran día comienza en:</h3>
-            <div id="countdown" class="flex justify-center gap-5 md:gap-10 text-xl md:text-3xl font-bold serif countdown-pulse">
+            <h3 class="uppercase tracking-widest text-xs md:text-sm mb-10 md:mb-12 font-semibold opacity-90">El gran día comienza en:</h3>
+            <div id="countdown" class="flex justify-center gap-4 md:gap-10 text-xl md:text-3xl font-bold serif countdown-pulse">
                 <div class="flex flex-col items-center">
                     <div class="countdown-item"><span id="days">00</span></div>
-                    <!-- Etiquetas más grandes (text-xs a text-sm/md) -->
                     <small class="text-[12px] md:text-sm font-semibold uppercase mt-3 tracking-widest">Días</small>
                 </div>
                 <div class="flex flex-col items-center">
@@ -294,54 +296,54 @@
     </section>
 
     <!-- DETALLES DEL EVENTO -->
-    <section class="py-32 px-6 bg-white">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+    <section class="py-20 md:py-32 px-6 bg-white">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             <!-- CEREMONIA -->
-            <div class="bg-white p-12 card text-center border-b-8 border-[#80a1c4]" data-aos="fade-right">
-                <div class="mb-8 flex justify-center text-[#80a1c4]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <div class="bg-white p-8 md:p-12 card text-center border-b-8 border-[#80a1c4]" data-aos="fade-right">
+                <div class="mb-6 md:mb-8 flex justify-center text-[#80a1c4]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                 </div>
-                <h3 class="elegant-cursive text-5xl mb-6 text-[#80a1c4]">Ceremonia Religiosa</h3>
+                <h3 class="elegant-cursive text-4xl md:text-5xl mb-6 text-[#80a1c4]">Ceremonia Religiosa</h3>
                 <p class="text-gray-800 text-lg mb-2 font-medium italic leading-tight">Our Lady of the Pillar Church</p>
-                <p class="text-gray-500 text-sm mb-6">1622 W 6th St, Santa Ana, CA 92703</p>
+                <p class="text-gray-500 text-xs md:text-sm mb-6">1622 W 6th St, Santa Ana, CA 92703</p>
                 <div class="bg-slate-50 py-4 rounded-xl mb-8 font-bold text-[#80a1c4] text-3xl">10:00 AM</div>
-                <button onclick="window.open('https://www.google.com/maps/place/Our+Lady+of+the+Pillar+Church/@33.7492883,-117.8930108,17z/')" class="w-full bg-[#80a1c4] text-white px-8 py-4 rounded-full text-sm font-bold tracking-widest hover:bg-[#4a6a8a] transition-all shadow-lg">VER MAPA IGLESIA</button>
+                <button onclick="window.open('https://www.google.com/maps/place/Our+Lady+of+the+Pillar+Church/@33.7492883,-117.8930108,17z/')" class="w-full bg-[#80a1c4] text-white px-8 py-4 rounded-full text-xs md:text-sm font-bold tracking-widest hover:bg-[#4a6a8a] transition-all shadow-lg">VER MAPA IGLESIA</button>
             </div>
 
             <!-- RECEPCIÓN -->
-            <div class="bg-white p-12 card text-center border-b-8 border-[#80a1c4]" data-aos="fade-left">
-                <div class="mb-8 flex justify-center text-[#80a1c4]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <div class="bg-white p-8 md:p-12 card text-center border-b-8 border-[#80a1c4]" data-aos="fade-left">
+                <div class="mb-6 md:mb-8 flex justify-center text-[#80a1c4]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </div>
-                <h3 class="elegant-cursive text-5xl mb-6 text-[#80a1c4]">Recepción</h3>
+                <h3 class="elegant-cursive text-4xl md:text-5xl mb-6 text-[#80a1c4]">Recepción</h3>
                 <p class="text-gray-800 text-lg font-bold">The Golden Dream Venue</p>
-                <p class="text-gray-500 text-sm mb-6 leading-tight">12812 Garden Grove Blvd Suite A, Garden Grove, CA 92843</p>
+                <p class="text-gray-500 text-xs md:text-sm mb-6 leading-tight">12812 Garden Grove Blvd Suite A, Garden Grove, CA 92843</p>
                 <div class="bg-slate-50 py-4 rounded-xl mb-8 font-bold text-[#80a1c4] text-3xl">04:00 PM</div>
-                <button onclick="window.open('https://www.google.com/maps/place/Banquet+hall+The+Golden+Dream+Venue,+12812+Garden+Grove+Blvd+Suite+A,+Garden+Grove,+CA+92843/')" class="w-full bg-[#80a1c4] text-white px-8 py-4 rounded-full text-sm font-bold tracking-widest hover:bg-[#4a6a8a] transition-all shadow-lg">VER MAPA SALÓN</button>
+                <button onclick="window.open('https://www.google.com/maps/place/Banquet+hall+The+Golden+Dream+Venue,+12812+Garden+Grove+Blvd+Suite+A,+Garden+Grove,+CA+92843/')" class="w-full bg-[#80a1c4] text-white px-8 py-4 rounded-full text-xs md:text-sm font-bold tracking-widest hover:bg-[#4a6a8a] transition-all shadow-lg">VER MAPA SALÓN</button>
             </div>
         </div>
     </section>
 
     <!-- CÓDIGO DE VESTIMENTA -->
-    <section class="py-24 px-6 bg-slate-50 text-center">
+    <section class="py-20 md:py-24 px-6 bg-slate-50 text-center">
         <div class="max-w-2xl mx-auto" data-aos="zoom-in">
-            <div class="mb-8 flex justify-center text-[#80a1c4]">
+            <div class="mb-6 md:mb-8 flex justify-center text-[#80a1c4]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.62 1.96V10a2 2 0 00.5 1.28l5 6.42A2 2 0 009.12 18h5.76a2 2 0 001.62-.86l5-6.42a2 2 0 00.5-1.28V5.42a2 2 0 00-1.62-1.96z"></path></svg>
             </div>
-            <h3 class="serif text-3xl uppercase tracking-[0.3em] mb-6 text-[#4a6a8a]">Código de Vestimenta</h3>
-            <p class="text-4xl elegant-cursive text-[#80a1c4] mb-4">Formal</p>
-            <p class="text-gray-500 italic text-lg font-light">"Hombres guapos y mujeres divinas"</p>
+            <h3 class="serif text-2xl md:text-3xl uppercase tracking-[0.3em] mb-4 md:mb-6 text-[#4a6a8a]">Código de Vestimenta</h3>
+            <p class="text-3xl md:text-4xl elegant-cursive text-[#80a1c4] mb-4">Formal</p>
+            <p class="text-gray-500 italic text-base md:text-lg font-light">"Hombres guapos y mujeres divinas"</p>
             <div class="w-20 h-px bg-[#80a1c4] mx-auto mt-8 opacity-30"></div>
         </div>
     </section>
 
     <!-- NO FALTES Y FOOTER -->
-    <footer class="py-20 text-center bg-white border-t border-slate-50">
-        <div class="mb-12" data-aos="zoom-in">
+    <footer class="py-16 md:py-20 text-center bg-white border-t border-slate-50 px-4">
+        <div class="mb-8 md:mb-12" data-aos="zoom-in">
             <h4 class="text-5xl md:text-7xl elegant-cursive text-[#4a6a8a]">¡No Faltes!</h4>
         </div>
-        <p class="serif italic text-2xl mb-4 text-[#80a1c4]">Melissa</p>
-        <p class="tracking-widest uppercase text-[10px] text-gray-400">&copy; 2026 - Mis XV Años</p>
+        <p class="serif italic text-xl md:text-2xl mb-4 text-[#80a1c4]">Melissa</p>
+        <p class="tracking-widest uppercase text-[9px] text-gray-400">&copy; 2026 - Mis XV Años</p>
     </footer>
 
     <script>
@@ -353,11 +355,11 @@
         let isPlaying = false;
 
         function createSparkles() {
-            const sparkleCount = 50;
+            const sparkleCount = 40;
             for(let i=0; i<sparkleCount; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
-                const size = Math.random() * 4 + 2;
+                const size = Math.random() * 3 + 2;
                 sparkle.style.width = `${size}px`;
                 sparkle.style.height = `${size}px`;
                 sparkle.style.left = `${Math.random() * 100}vw`;
